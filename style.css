@@ -15,9 +15,11 @@
   max-width: 1300px;
   height: 100vh;
   background: linear-gradient(to bottom, #87ceeb, #dff6ff);
-  cursor:
+  /* cursor:
     url("images/bird.ico") 10 10,
-    auto;
+    auto; */
+  cursor: none; /* 👈 مهم جدًا */
+
   position: relative;
   overflow: hidden;
   border: 3px solid #222;
@@ -225,3 +227,21 @@
 #level {
   left: 10px;
 }
+
+#cursor {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  pointer-events: none;
+  background: url("images/bird.ico") no-repeat center/contain;
+  z-index: 999999;
+  display: none;
+}
+
+/* @media (hover: hover) {
+  #container {
+    cursor:
+      url("images/bird.ico") 10 10,
+      auto;
+  }
+} */

@@ -159,3 +159,24 @@ if (
     }
   });
 }
+
+const cursor = document.getElementById("cursor");
+
+// show only on desktop
+if (window.matchMedia("(hover: hover)").matches) {
+  cursor.style.display = "block";
+
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.pageX + "px";
+    cursor.style.top = e.pageY + "px";
+  });
+}
+
+// mobile touch follow (optional)
+document.addEventListener("touchmove", (e) => {
+  const touch = e.touches[0];
+
+  cursor.style.display = "block";
+  cursor.style.left = touch.pageX + "px";
+  cursor.style.top = touch.pageY + "px";
+});
