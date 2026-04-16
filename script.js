@@ -160,23 +160,28 @@ if (
   });
 }
 
-const cursor = document.getElementById("cursor");
+const fakeCursor = document.getElementById("cursor");
 
-// show only on desktop
-if (window.matchMedia("(hover: hover)").matches) {
-  cursor.style.display = "block";
-
-  document.addEventListener("mousemove", (e) => {
-    cursor.style.left = e.pageX + "px";
-    cursor.style.top = e.pageY + "px";
-  });
+function moveCursor(x, y) {
+  fakeCursor.style.left = x + "px";
+  fakeCursor.style.top = y + "px";
 }
 
-// mobile touch follow (optional)
+// Desktop mouse
+document.addEventListener("mousemove", (e) => {
+  moveCursor(e.pageX, e.pageY);
+});
+
+// Mobile touch
 document.addEventListener("touchmove", (e) => {
   const touch = e.touches[0];
-
-  cursor.style.display = "block";
-  cursor.style.left = touch.pageX + "px";
-  cursor.style.top = touch.pageY + "px";
+  moveCursor(touch.pageX, touch.pageY);
 });
+
+document.addEventListener(
+  "touchmove",
+  function (e) {
+    e.preventDefault();
+  },
+  { passive: false },
+);

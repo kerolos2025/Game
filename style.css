@@ -235,13 +235,15 @@
   pointer-events: none;
   background: url("images/bird.ico") no-repeat center/contain;
   z-index: 999999;
-  display: none;
+  transform: translate(-50%, -50%);
+  display: block; /* مهم */
 }
 
-/* @media (hover: hover) {
-  #container {
-    cursor:
-      url("images/bird.ico") 10 10,
-      auto;
-  }
-} */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* يمنع السكرول */
+  height: 100%;
+  touch-action: none; /* مهم للموبايل */
+}
