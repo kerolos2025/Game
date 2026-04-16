@@ -229,8 +229,8 @@
 }
 
 #cursor {
-  width: 40px;
-  height: 40px;
+  width: 100px;
+  height: 100px;
   position: absolute;
   pointer-events: none;
   background: url("images/bird.ico") no-repeat center/contain;
